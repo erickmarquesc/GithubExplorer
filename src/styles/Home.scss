@@ -1,0 +1,41 @@
+main{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+
+  h1{
+    width: 20rem;
+    margin-bottom: 1rem;
+  }
+}
+
+section{  
+
+  input{
+    padding: 1rem;
+    width: 20rem;
+    border: 0;
+    font-size: 1rem;
+  }
+  
+  button{
+    padding: 1rem;
+    width: 10rem;
+    background-color: #04D361;
+    border: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+div{
+  display: block;
+  padding: 1rem;
+  margin-top: 1rem;
+}
