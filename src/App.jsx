@@ -1,7 +1,7 @@
 
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './routers';
-import './global.css';
+import './styles/global.scss';
 
 export default function App() {
   return (
