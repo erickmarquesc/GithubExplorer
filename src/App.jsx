@@ -1,13 +1,16 @@
 
 import { BrowserRouter } from 'react-router-dom';
+import { RepositoryProvider } from './context';
 import { Router } from './routers';
 import './styles/global.scss';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <RepositoryProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </RepositoryProvider>
   )
 };
 
