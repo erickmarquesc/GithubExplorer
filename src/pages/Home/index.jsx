@@ -1,12 +1,19 @@
 import { RepositoryList } from '../../components/RepoList/RepositoryList';
 import { useState } from 'react';
 import '../../styles/Home.scss';
+import { RepositoryContext } from '../../context';
+import { useContextSelector } from "use-context-selector";
 
 export function Home() {
   const [reporitoryName, setRepositoryName] = useState('');
-
+  
+  const repositories = useContextSelector(RepositoryContext, (context) => {
+    return context.repositories
+  });
   const handleSearchRepository = async () => {
-    console.log(reporitoryName)
+    console.log(repositories.find((reporitoryname)=>{
+      return reporitoryname.name = reporitoryName
+    }))
   };
 
   return (
