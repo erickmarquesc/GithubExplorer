@@ -1,14 +1,12 @@
 import { RepositoryItem } from "./RepositoryItem";
-import { useEffect, useState } from "react";
+import { RepositoryContext } from "../../context";
+import { useContextSelector } from "use-context-selector";
 
 export function RepositoryList(){
-   const [repositories, setRepositories] = useState([]);
-
-  useEffect(()=>{
-    fetch('https://api.github.com/users/erickmarquesc/repos')
-    .then((response)=> response.json())
-    .then((data)=> setRepositories(data))
-  },[]);
+  
+  const repositories = useContextSelector(RepositoryContext, (context)=>{
+    return context.repositories
+  });
 
   return(
     <div>
