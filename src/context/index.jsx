@@ -15,7 +15,8 @@ export function RepositoryProvider({children}) {
 
   return (
     <RepositoryContext.Provider value={{
-      repositories
+      repositories,
+      setRepositories
     }}>
       {children}
     </RepositoryContext.Provider>
