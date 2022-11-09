@@ -1,20 +1,42 @@
 import { RepositoryList } from '../../components/RepoList/RepositoryList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../styles/Home.scss';
 import { RepositoryContext } from '../../context';
 import { useContextSelector } from "use-context-selector";
 
 export function Home() {
-  const [reporitoryName, setRepositoryName] = useState('');
+  const [repository, setRepository] = useState('');
   
   const repositories = useContextSelector(RepositoryContext, (context) => {
     return context.repositories
   });
   const handleSearchRepository = async () => {
-    console.log(repositories.find((reporitoryname)=>{
-      return reporitoryname.name = reporitoryName
-    }))
+    const repo = document.querySelector('input').value;
+
+    fetch(`https://api.github.com/search/repositories?q="${repo}"+in:name+user:erickmarquesc`)
+    .then((response) => response.json())
+    .then((data) => {
+      const repos = document.getElementById("repos");
+      repos.innerHTML = '';
+      let languages = '';
+      data.items.forEach( repository => {
+        languages = repository.topics.toString().toUpperCase();
+        repos.innerHTML +=
+        `<li>
+          <strong>${repository.name}</strong>
+          <p>${repository.description ?? "Sem descrição disponível."}</p>
+            <label>${languages
+              ? languages
+              : 'Linguagem não identificada.'}
+            </label>
+            <a target="_blank" href=${repository.html_url}>Acessar repositório</a>
+        </li>`;
+      });
+    });
   };
+
+
+  
 
   return (
     <main>
@@ -23,14 +45,13 @@ export function Home() {
       <section>
         <input
           placeholder="Busque por um dos meus repositórios"
-          onChange={(e) => setRepositoryName(e.target.value)}
+          onChange={handleSearchRepository}
         />
         <button onClick={handleSearchRepository}>Buscar</button>
       </section>
 
-      <div>
-        <RepositoryList />
-      </div>
+      <RepositoryList />
+
 
     </main>
   );
