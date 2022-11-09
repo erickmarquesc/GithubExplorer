@@ -1,28 +1,40 @@
-li{
-  padding: 2rem;
-  background-color: #4c4c4c;
-  margin-bottom: 1rem;
-  color: white;
-  border-radius: 0.5rem;
-  list-style-type: none;
+a{
+  text-decoration: none;
+  color: #04D361;
 
-  strong{
-    font-size: 2rem;
-    border-bottom: 0.1rem solid #9c9c9c;
-  }
-
-  label{
-    display: block;
-    color: #9c9c9c;
+  li{
+    padding: 2rem;
+    background-color: #4c4c4c;
     margin-bottom: 1rem;
+    color: white;
+    border-radius: 0.5rem;
+    list-style-type: none;
+
+    section{
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      
+      strong{
+        font-size: 2rem;
+      }
+
+    }
+
+    label{
+      display: block;
+      color: #9c9c9c;
+      margin-bottom: 1rem;
+    }
+
+    p{
+      margin: 1rem 0; 
+    }
+
+    &:hover{
+      background-color: #1f1f1f;
+    }
   }
 
-  p{
-    margin: 1rem 0; 
-  }
-
-  a{
-    text-decoration: none;
-    color: #04D361;
-  }
+  
 }
