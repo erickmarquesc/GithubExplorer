@@ -8,6 +8,8 @@ export function RepositoryList(){
     return context.repositories
   });
 
+  console.log(repositories)
+
   return(
     <div>
       {repositories.map((repository) => {
